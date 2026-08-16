@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track your bus — BusYatra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <header class="page-hero" style="--hero-img:url('img/bus-3.jpg')">
+    <div class="container">
+      <span class="eyebrow" style="color:#fff" data-i18n="ticket.eyebrow">Live status</span>
+      <h1>Track your bus</h1>
+      <p>Enter a bus/trip ID (e.g. 1, 2 or 4) to see its live progress.</p>
+    </div>
+    <div class="scene" aria-hidden="true">
+      <span class="cloud c1">☁️</span>
+      <span class="cloud c2">☁️</span>
+      <span class="cloud c3">☁️</span>
+      <div class="bus">🚌</div>
+      <div class="road"></div>
+    </div>
+  </header>
+
+  <section class="section container">
+    <div class="mini-mission">
+      <div class="mm-icon">📍</div>
+      <div>
+        <b>Our mission: real-time tracking you can trust</b>
+        <span>Know exactly where your bus is, from boarding to drop-off — no guesswork, no waiting in the dark.</span>
+      </div>
+    </div>
+
+    <div class="track-visual" style="--tv-img:url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=80&auto=format&fit=crop')">
+      <div class="tv-text">
+        <b>Live GPS tracking</b>
+        <span>Route progress updates every few seconds while your bus is on the road.</span>
+      </div>
+    </div>
+
+    <div class="offer-apply" style="max-width:420px;margin:0 0 18px">
+      <input id="trackId" placeholder="Bus ID e.g. 1" value="">
+      <button class="btn btn-primary" id="trackBtn">Track</button>
+    </div>
+
+    <div id="trackResult"></div>
+  </section>
+
+  <footer data-i18n="footer.text">© 2026 BusYatra</footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/track.js"></script>
+</body>
+</html>

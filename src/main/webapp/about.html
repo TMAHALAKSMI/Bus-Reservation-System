@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About us — BusYatra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="nav"></div>
+
+  <header class="page-hero" style="--hero-img:url('img/bus-3.jpg')">
+    <div class="container">
+      <span class="eyebrow" style="color:#fff" data-i18n="about.eyebrow">Who we are</span>
+      <h1 data-i18n="about.heading">About BusYatra</h1>
+      <p data-i18n="about.intro">BusYatra makes intercity bus travel simple — search routes, compare operators, pick your seat and track your bus live, all in one place.</p>
+    </div>
+  </header>
+
+  <section class="section container">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-num">2,000+</div><div class="stat-label" data-i18n="about.stats.routes">Routes covered</div></div>
+      <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label" data-i18n="about.stats.operators">Bus operators</div></div>
+      <div class="stat-card"><div class="stat-num">5 Cr+</div><div class="stat-label" data-i18n="about.stats.travellers">Happy travellers</div></div>
+      <div class="stat-card"><div class="stat-num">450+</div><div class="stat-label" data-i18n="about.stats.cities">Cities connected</div></div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="offer-card mission-card">
+      <div class="img-wrap mission-photo">
+        <img data-src="img/bus-4.jpg" alt="BusYatra — web based bus ticket reservation">
+        <div class="spinner"></div>
+      </div>
+      <div class="mission-text">
+        <h3 data-i18n="about.mission.title">Our mission</h3>
+        <p class="muted" style="margin-top:8px" data-i18n="about.mission.body">To make every bus journey across India easy to plan, fair on price and stress-free to track — for every traveller, in every city we serve.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <span class="eyebrow" data-i18n="about.values.title">What we stand for</span>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">💳</div>
+        <h4 data-i18n="about.value1.title">Transparent pricing</h4>
+        <p class="muted" data-i18n="about.value1.body">The fare you see is the fare you pay — no hidden fees at checkout.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📍</div>
+        <h4 data-i18n="about.value2.title">Real-time tracking</h4>
+        <p class="muted" data-i18n="about.value2.body">Know exactly where your bus is, from boarding to drop-off.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h4 data-i18n="about.value3.title">Customer first</h4>
+        <p class="muted" data-i18n="about.value3.body">Round-the-clock support and easy cancellations whenever plans change.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer data-i18n="footer.text">© 2026 BusYatra</footer>
+
+  <script src="js/common.js"></script>
+  <script>
+    mountNav('about');
+    loadSession();
+    initLazyImages();
+  </script>
+</body>
+</html>

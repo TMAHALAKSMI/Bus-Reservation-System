@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#e6f7ee"/><stop offset="1" stop-color="#d3f0e0"/></linearGradient></defs>
+  <rect width="300" height="200" fill="url(#g3)"/>
+  <rect x="34" y="60" width="232" height="80" rx="14" fill="#0f9d58"/>
+  <rect x="46" y="70" width="204" height="30" rx="5" fill="#fff" opacity=".92"/>
+  <rect x="52" y="75" width="30" height="20" rx="3" fill="#bcdcff"/>
+  <rect x="88" y="75" width="30" height="20" rx="3" fill="#bcdcff"/>
+  <rect x="124" y="75" width="30" height="20" rx="3" fill="#bcdcff"/>
+  <rect x="160" y="75" width="30" height="20" rx="3" fill="#bcdcff"/>
+  <rect x="212" y="75" width="30" height="20" rx="3" fill="#0f1e3d"/>
+  <rect x="46" y="110" width="216" height="11" rx="4" fill="#0a7a44"/>
+  <circle cx="92" cy="142" r="17" fill="#1a1a2e"/><circle cx="92" cy="142" r="7" fill="#8a8fa3"/>
+  <circle cx="214" cy="142" r="17" fill="#1a1a2e"/><circle cx="214" cy="142" r="7" fill="#8a8fa3"/>
+  <text x="150" y="178" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#0a7a44" text-anchor="middle">AC SEATER</text>
+</svg>

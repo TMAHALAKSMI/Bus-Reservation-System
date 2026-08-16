@@ -1,0 +1,393 @@
+/* =====================================================================
+   Bus Ticket Reservation System — global styles
+   ===================================================================== */
+:root{
+  --red:#8b2fc9;          /* primary medium violet */
+  --red-dark:#6a21a0;
+  --orange:#a855f7;       /* violet accent (was orange)  */
+  --ink:#241b3a;          /* headings               */
+  --amber:#c084fc;        /* offers accent (light violet) */
+  --green:#16a34a;
+  --bg:#faf6ff;           /* soft violet-tinted light background */
+  --card:#ffffff;
+  --line:#ece3fa;
+  --muted:#6b7280;
+  --shadow:0 8px 28px rgba(90,20,140,.12);
+  --shadow-sm:0 2px 10px rgba(90,20,140,.08);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.5;
+}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--ink);line-height:1.2}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{width:min(1120px,92%);margin-inline:auto}
+.muted{color:var(--muted)}
+.hidden{display:none !important}
+
+/* ---------- Navbar ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(90deg,#7c1fb0 0%,#9d3fd0 100%);color:#fff;
+  box-shadow:0 3px 16px rgba(107,20,150,.28);
+}
+.nav-inner{display:flex;align-items:center;gap:14px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins';font-weight:700;font-size:1.25rem;color:#fff;flex-shrink:0}
+.brand .logo{width:34px;height:34px;display:grid;place-items:center;background:#fff;border-radius:9px;color:var(--red);font-size:1.1rem}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:8px 12px;border-radius:8px;font-weight:500;font-size:.9rem;color:#fff;opacity:.92;white-space:nowrap}
+.nav-links a:hover{background:rgba(255,255,255,.15);opacity:1}
+.nav-user{display:flex;align-items:center;gap:10px}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center;font-weight:700}
+
+/* ---------- Language selector ---------- */
+.lang-select{
+  background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.55);
+  border-radius:8px;padding:7px 10px;font-family:inherit;font-size:.85rem;font-weight:600;
+  cursor:pointer;margin-right:2px;
+}
+.lang-select option{color:#20233f;background:#fff}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;cursor:pointer;font-weight:600;font-size:.95rem;
+  padding:11px 20px;border-radius:10px;transition:.15s;font-family:inherit;
+}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-outline{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+.btn-outline:hover{background:#fff2f4}
+.btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{background:rgba(255,255,255,.28)}
+.btn-light{background:#fff;color:var(--red)}
+.btn-light:hover{background:#fff0ea}
+.btn-amber{background:var(--amber);color:#3b0764}
+.btn-block{width:100%}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+
+/* ---------- Hero + search ---------- */
+.hero{
+  background:
+    linear-gradient(120deg,rgba(90,20,140,.42) 0%,rgba(139,47,201,.30) 55%,rgba(90,20,140,.42) 100%),
+    url('../img/bus1.jpg') center/cover no-repeat;
+  color:#fff;padding:52px 0 0;position:relative;overflow:hidden;
+}
+.hero .container{position:relative;z-index:3}
+.hero h1{color:#fff;font-size:2.3rem;max-width:640px;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.hero p{opacity:.95;margin-top:10px;max-width:560px;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+
+/* ---- animated hero scene: bus drives across a scrolling road ---- */
+.scene{position:relative;height:118px;margin-top:24px;overflow:hidden}
+.scene .cloud{position:absolute;font-size:2rem;opacity:.9;animation:drift linear infinite}
+.scene .cloud.c1{top:8px;animation-duration:26s}
+.scene .cloud.c2{top:34px;font-size:1.4rem;opacity:.6;animation-duration:36s;animation-delay:-8s}
+.scene .cloud.c3{top:2px;font-size:1.6rem;opacity:.7;animation-duration:30s;animation-delay:-18s}
+.scene .road{position:absolute;left:0;right:0;bottom:0;height:44px;background:#3a2b26}
+.scene .road::before{content:"";position:absolute;top:20px;left:0;right:0;height:4px;
+  background:repeating-linear-gradient(90deg,#ffd27a 0 34px,transparent 34px 68px);
+  animation:roadscroll .55s linear infinite}
+.scene .bus{position:absolute;bottom:30px;font-size:3rem;
+  animation:drive 9s linear infinite, bob .6s ease-in-out infinite alternate;
+  filter:drop-shadow(0 6px 5px rgba(0,0,0,.28))}
+@keyframes drive{0%{left:-14%}100%{left:110%}}
+@keyframes bob{to{transform:translateY(-4px)}}
+@keyframes drift{from{left:-15%}to{left:115%}}
+@keyframes roadscroll{to{background-position:-68px 0}}
+@media(prefers-reduced-motion:reduce){
+  .scene .bus,.scene .cloud,.scene .road::before{animation:none}
+}
+
+/* ---- scrolling promo strip ---- */
+.promo-strip{background:#f4e9ff;border-block:1px solid #ddc2f8;overflow:hidden}
+.promo-track{display:flex;gap:52px;width:max-content;padding:11px 0;white-space:nowrap;animation:marquee 24s linear infinite}
+.promo-track span{font-weight:600;color:#6a21a0;font-size:.9rem}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.promo-track{animation:none}}
+
+.search-card{
+  background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+  padding:20px;margin-top:22px;position:relative;z-index:5;
+}
+.search-grid{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:14px;align-items:end}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.field input,.field select{
+  padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:1rem;font-family:inherit;background:#fff;transition:.15s;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(210,20,58,.12)}
+.swap{align-self:center;background:#fff;border:1.5px solid var(--line);border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:1rem}
+
+/* ---------- Section headings ---------- */
+.section{padding:40px 0}
+.section h2{font-size:1.5rem;margin-bottom:4px}
+.eyebrow{color:var(--red);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+
+/* ---------- Offers ---------- */
+.offers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+.offer-card{
+  background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;
+}
+.offer-top{background:linear-gradient(120deg,#f5eaff,#e8d3fb);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.offer-badge{background:var(--amber);color:#3b0764;font-weight:800;padding:8px 12px;border-radius:10px;font-size:1.1rem;white-space:nowrap}
+.offer-body{padding:16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.offer-code{
+  align-self:flex-start;font-family:monospace;font-weight:700;letter-spacing:.05em;
+  border:1.5px dashed var(--red);color:var(--red);padding:5px 10px;border-radius:8px;cursor:pointer;background:#fff5f6;
+}
+.offer-code:hover{background:#ffe3e8}
+
+/* ---------- Bus result cards ---------- */
+.results-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+.bus-list{display:flex;flex-direction:column;gap:16px}
+.bus-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);display:grid;grid-template-columns:150px 1fr auto;gap:18px;padding:16px;transition:.15s;
+}
+.bus-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+
+/* image with loading circle */
+.img-wrap{position:relative;width:150px;height:104px;border-radius:10px;overflow:hidden;background:#eef0f6}
+.img-wrap img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
+.img-wrap img.loaded{opacity:1}
+.spinner{
+  position:absolute;inset:0;margin:auto;width:30px;height:30px;border-radius:50%;
+  border:3px solid #d7dbe7;border-top-color:var(--red);animation:spin .8s linear infinite;
+}
+.img-wrap img.loaded + .spinner{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.bus-mid{display:flex;flex-direction:column;gap:6px;min-width:0}
+.bus-op{font-family:'Poppins';font-weight:700;font-size:1.1rem}
+.bus-type{color:var(--muted);font-size:.9rem}
+.bus-times{display:flex;align-items:center;gap:14px;margin-top:6px;flex-wrap:wrap}
+.time{font-weight:700;font-size:1.05rem}
+.dur{color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:6px}
+.dur::before{content:"";flex:1;height:1px;background:var(--line);min-width:26px}
+.dur::after{content:"";flex:1;height:1px;background:var(--line);min-width:26px}
+.amenities{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:#f1f2f7;color:#4b5563;font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:20px}
+.rating{background:var(--green);color:#fff;font-weight:700;font-size:.8rem;padding:2px 8px;border-radius:6px;display:inline-flex;gap:3px;align-items:center}
+
+.bus-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:8px;text-align:right}
+.fare{font-family:'Poppins';font-weight:800;font-size:1.4rem;color:var(--ink)}
+.fare small{font-weight:500;font-size:.8rem;color:var(--muted)}
+.seats-left{font-size:.8rem;color:var(--green);font-weight:600}
+.seats-left.low{color:var(--red)}
+
+/* ---------- Seat map ---------- */
+.seat-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
+.deck{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm)}
+.deck-title{font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.wheel{margin-left:auto;color:var(--muted);font-size:.85rem}
+.seat-grid{display:grid;grid-template-columns:repeat(5,44px);gap:10px;justify-content:center}
+.aisle{grid-column:3}
+.seat{
+  width:44px;height:44px;border:1.5px solid #c7ccda;border-radius:8px;background:#fff;
+  cursor:pointer;font-size:.75rem;font-weight:600;color:#5b6172;display:grid;place-items:center;transition:.12s;position:relative;
+}
+.seat:hover:not(.booked){border-color:var(--red);color:var(--red)}
+.seat.selected{background:var(--red);border-color:var(--red);color:#fff}
+.seat.booked{background:#e9ebf1;border-color:#e9ebf1;color:#b6bac6;cursor:not-allowed}
+.seat.female{border-color:#e879a6}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:.82rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:7px}
+.dot{width:16px;height:16px;border-radius:5px;border:1.5px solid #c7ccda}
+.dot.sel{background:var(--red);border-color:var(--red)}
+.dot.bk{background:#e9ebf1;border-color:#e9ebf1}
+
+/* summary / forms */
+.summary{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);position:sticky;top:80px}
+.summary h3{margin-bottom:12px}
+.summary-row{display:flex;justify-content:space-between;padding:7px 0;font-size:.95rem}
+.summary-row.total{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-weight:800;font-size:1.15rem}
+.form-row{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.form-row label{font-size:.82rem;font-weight:600;color:var(--muted)}
+.form-row input,.form-row select{padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;font-size:.95rem;font-family:inherit}
+.form-row input:focus,.form-row select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(210,20,58,.12)}
+.offer-apply{display:flex;gap:8px}
+.offer-apply input{flex:1;text-transform:uppercase}
+
+/* ---------- Confirmation ticket ---------- */
+.ticket{max-width:560px;margin:32px auto;background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.ticket-head{background:var(--green);color:#fff;padding:26px;text-align:center}
+.ticket-head .check{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.25);display:grid;place-items:center;margin:0 auto 10px;font-size:1.8rem}
+.ticket-body{padding:26px}
+.pnr{font-family:monospace;font-size:1.6rem;font-weight:800;letter-spacing:.1em;color:var(--red);text-align:center;margin:6px 0 18px}
+.ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tk{display:flex;flex-direction:column;gap:2px}
+.tk span{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+.tk b{font-size:1rem}
+.dashed{border:none;border-top:2px dashed var(--line);margin:20px 0}
+
+/* ---------- Mini mission strip (used on track/ticket pages) ---------- */
+.mini-mission{
+  background:linear-gradient(120deg,#f5eaff,#ece0ff);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 22px;display:flex;align-items:center;gap:16px;
+  margin-bottom:22px;box-shadow:var(--shadow-sm);
+}
+.mini-mission .mm-icon{font-size:1.8rem;flex-shrink:0}
+.mini-mission b{display:block;font-size:.98rem}
+.mini-mission span{color:var(--muted);font-size:.86rem}
+
+/* ---------- Visual panel behind track/ticket results (bg image/gif) ---------- */
+.track-visual{
+  --tv-img:url('../img/bus1.jpg');
+  position:relative;border-radius:var(--radius);overflow:hidden;margin-bottom:22px;
+  min-height:170px;display:flex;align-items:center;justify-content:center;
+  background:#241b3a var(--tv-img) center/cover no-repeat;
+  box-shadow:var(--shadow);
+}
+.track-visual::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,rgba(90,20,140,.80),rgba(139,47,201,.55));}
+.track-visual .tv-text{position:relative;z-index:2;color:#fff;text-align:center;padding:18px}
+.track-visual .tv-text b{font-family:'Poppins';font-size:1.15rem;display:block}
+.track-visual .tv-text span{opacity:.9;font-size:.88rem}
+
+/* ---------- Row action menu (e.g. "Manage" -> Cancel booking) ---------- */
+.menu-wrap{position:relative;display:inline-block}
+.menu-list{
+  position:absolute;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);
+  border-radius:10px;box-shadow:var(--shadow);min-width:180px;padding:6px;z-index:30;
+  display:none;
+}
+.menu-list.open{display:block}
+.menu-item{
+  display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:none;
+  padding:9px 10px;border-radius:7px;font-size:.88rem;font-weight:500;color:var(--ink);cursor:pointer;font-family:inherit;
+}
+.menu-item:hover{background:#f4e9ff}
+.menu-item.danger{color:#c0271e}
+.menu-item.danger:hover{background:#fdeaea}
+
+/* ---------- Route tracking ---------- */
+.track-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);max-width:760px;margin:0 auto}
+.track-bar{height:8px;background:#eef0f6;border-radius:20px;margin:26px 0 6px;position:relative}
+.track-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--amber));border-radius:20px;transition:width .6s}
+.track-bus{position:absolute;top:-11px;transform:translateX(-50%);font-size:1.4rem;transition:left .6s}
+.track-ends{display:flex;justify-content:space-between;font-weight:600;font-size:.9rem}
+.status-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:20px;font-weight:700;font-size:.85rem}
+.status-pill.on{background:#e7f7ee;color:var(--green)}
+.status-pill.delay{background:#fdeaea;color:var(--red)}
+
+/* ---------- Modal ---------- */
+.modal-back{position:fixed;inset:0;background:rgba(15,15,35,.55);display:grid;place-items:center;z-index:100;padding:20px}
+.modal{background:#fff;border-radius:16px;width:min(420px,100%);box-shadow:var(--shadow);overflow:hidden}
+.modal-head{background:var(--red);color:#fff;padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
+.modal-head h3{color:#fff}
+.modal-close{background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;line-height:1}
+.modal-body{padding:24px}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tab{flex:1;padding:9px;border:1.5px solid var(--line);background:#fff;border-radius:9px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab.active{border-color:var(--red);color:var(--red);background:#fff5f6}
+.switch{text-align:center;margin-top:14px;font-size:.9rem;color:var(--muted)}
+.switch a{color:var(--red);font-weight:600;cursor:pointer}
+
+/* ---------- Route photo cards (home page trending routes) ---------- */
+.route-card{
+  background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);overflow:hidden;display:block;transition:.15s;
+}
+.route-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.route-photo{position:relative;width:100%;height:150px;background:#eef0f6}
+.route-photo img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
+.route-photo img.loaded{opacity:1}
+.route-photo img.loaded + .spinner{display:none}
+.route-photo .spinner{position:absolute;inset:0;margin:auto;width:28px;height:28px;border-radius:50%;
+  border:3px solid #d7dbe7;border-top-color:var(--red);animation:spin .8s linear infinite}
+.route-body{padding:14px 16px}
+.route-cities{display:flex;align-items:center;gap:8px;font-family:'Poppins';font-weight:700;font-size:1.05rem}
+.route-cities span{color:var(--red)}
+
+/* ---------- About page ---------- */
+.mission-card{flex-direction:row;align-items:stretch}
+.mission-photo{width:260px;height:auto;border-radius:0;flex-shrink:0}
+.mission-text{padding:22px 26px}
+@media(max-width:700px){
+  .mission-card{flex-direction:column}
+  .mission-photo{width:100%;height:180px}
+}
+.page-hero{
+  --hero-img:url('../img/bus1.jpg');
+  background:
+    linear-gradient(120deg,rgba(90,20,140,.42) 0%,rgba(139,47,201,.30) 55%,rgba(90,20,140,.42) 100%),
+    var(--hero-img) center/cover no-repeat;
+  color:#fff;padding:56px 0;text-align:center;position:relative;overflow:hidden;
+}
+.page-hero .scene{margin-top:20px}
+.page-hero h1{color:#fff;font-size:2rem;max-width:680px;margin:0 auto;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.page-hero p{opacity:.95;margin-top:10px;max-width:600px;margin-inline:auto;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+
+/* ---------- Home promo banner (full-width marketing graphic) ---------- */
+.promo-banner{
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-top:6px;
+  position:relative;background:#0d1330;min-height:160px;
+}
+.promo-banner img{width:100%;display:block;object-fit:cover;max-height:340px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:24px}
+.stat-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:22px;text-align:center}
+.stat-num{font-family:'Poppins';font-weight:800;font-size:1.8rem;color:var(--red)}
+.stat-label{color:var(--muted);font-size:.85rem;margin-top:4px}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+.value-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:20px}
+.value-icon{font-size:1.6rem;margin-bottom:8px}
+.value-card h4{font-size:1.02rem;margin-bottom:6px}
+
+/* ---------- Reviews ---------- */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:18px}
+.review-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:20px;display:flex;flex-direction:column;gap:10px}
+.review-top{display:flex;align-items:center;gap:12px}
+.review-avatar{width:46px;height:46px;border-radius:50%;object-fit:cover;background:#eef0f6;flex-shrink:0;border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+.review-name{font-weight:700;font-size:.98rem}
+.review-route{color:var(--muted);font-size:.8rem}
+.review-stars{color:var(--amber);font-size:.9rem;letter-spacing:1px}
+.review-text{color:#4b5563;font-size:.92rem;line-height:1.55}
+
+/* ---------- Contact page ---------- */
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start;margin-top:18px}
+.contact-form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:24px}
+.contact-info{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:24px;display:flex;flex-direction:column;gap:16px}
+.contact-info-row{display:flex;gap:12px;align-items:flex-start}
+.contact-info-icon{width:38px;height:38px;border-radius:10px;background:#f4e9ff;color:var(--red);display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
+.contact-info-row b{display:block;font-size:.92rem}
+.contact-info-row span{color:var(--muted);font-size:.86rem}
+textarea.ta{resize:vertical;min-height:110px;padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;font-size:.95rem;font-family:inherit}
+textarea.ta:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(210,20,58,.12)}
+
+@media(max-width:860px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* ---------- Toast + misc ---------- */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);
+  background:var(--ink);color:#fff;padding:13px 22px;border-radius:10px;box-shadow:var(--shadow);
+  z-index:200;transition:transform .3s;font-size:.95rem;max-width:90%;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.err{background:var(--red)}
+.toast.ok{background:var(--green)}
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .big{font-size:3rem;margin-bottom:10px}
+.page-loader{display:grid;place-items:center;padding:60px}
+.page-loader .spinner{position:static;width:38px;height:38px}
+footer{background:var(--ink);color:#c9cbe0;padding:28px 0;margin-top:40px;text-align:center;font-size:.9rem}
+
+/* ---------- Responsive ---------- */
+@media(max-width:860px){
+  .search-grid{grid-template-columns:1fr 1fr}
+  .swap{display:none}
+  .bus-card{grid-template-columns:1fr;text-align:left}
+  .img-wrap{width:100%;height:150px}
+  .bus-right{align-items:flex-start;text-align:left}
+  .seat-layout{grid-template-columns:1fr}
+  .summary{position:static}
+  .ticket-grid{grid-template-columns:1fr}
+}
